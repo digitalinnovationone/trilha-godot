@@ -1,0 +1,173 @@
+[gd_scene load_steps=15 format=3 uid="uid://dehxjlp2if5uc"]
+
+[ext_resource type="PackedScene" uid="uid://bde0jlck61cdp" path="res://player/player.tscn" id="1_8t8md"]
+[ext_resource type="PackedScene" uid="uid://brw0ho76keplr" path="res://ui/game_ui.tscn" id="2_ujdyr"]
+[ext_resource type="PackedScene" uid="uid://qlbju1yy86rl" path="res://enemies/goblin.tscn" id="3_r3ylj"]
+[ext_resource type="PackedScene" uid="uid://djjycvpoebuqd" path="res://enemies/sheep.tscn" id="4_hcfim"]
+[ext_resource type="PackedScene" uid="uid://dxe5o5g612ryk" path="res://enemies/pawn.tscn" id="5_n2bba"]
+[ext_resource type="PackedScene" uid="uid://djbg0mm1ruq0t" path="res://misc/meat.tscn" id="6_v7vk0"]
+[ext_resource type="Texture2D" uid="uid://cu48qh4ctofaq" path="res://addons/Tiny Swords/UI/Ribbons/Ribbon_Red_3Slides.png" id="7_p1re1"]
+[ext_resource type="Texture2D" uid="uid://ba285ssmlmp62" path="res://addons/Tiny Swords/UI/Banners/Banner_Vertical.png" id="8_mm5d6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yrl36"]
+texture = ExtResource("7_p1re1")
+texture_margin_left = 64.0
+texture_margin_right = 64.0
+
+[sub_resource type="SystemFont" id="SystemFont_7iygq"]
+font_names = PackedStringArray("JetBrains Mono")
+font_weight = 999
+
+[sub_resource type="LabelSettings" id="LabelSettings_d8b0n"]
+font = SubResource("SystemFont_7iygq")
+font_size = 32
+font_color = Color(0.321569, 0.0745098, 0.0745098, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ldjpp"]
+texture = ExtResource("8_mm5d6")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(32, 32, 128, 128)
+
+[sub_resource type="SystemFont" id="SystemFont_d53kh"]
+font_names = PackedStringArray("JetBrains Mono")
+font_weight = 999
+
+[sub_resource type="LabelSettings" id="LabelSettings_v5y8d"]
+font = SubResource("SystemFont_d53kh")
+font_size = 24
+font_color = Color(0.00784314, 0.00784314, 0.00784314, 0.807843)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_8t8md")]
+position = Vector2(562, 344)
+
+[node name="GameUI" parent="." instance=ExtResource("2_ujdyr")]
+visible = false
+
+[node name="Goblin" parent="." instance=ExtResource("3_r3ylj")]
+position = Vector2(903, 322)
+
+[node name="Sheep" parent="." instance=ExtResource("4_hcfim")]
+position = Vector2(287, 580)
+
+[node name="Sheep2" parent="." instance=ExtResource("4_hcfim")]
+position = Vector2(119, 519)
+
+[node name="Sheep3" parent="." instance=ExtResource("4_hcfim")]
+position = Vector2(134, 367)
+
+[node name="Sheep4" parent="." instance=ExtResource("4_hcfim")]
+position = Vector2(491, 658)
+
+[node name="Pawn" parent="." instance=ExtResource("5_n2bba")]
+position = Vector2(302, 690)
+
+[node name="Meat" parent="." instance=ExtResource("6_v7vk0")]
+position = Vector2(736, 516)
+
+[node name="Meat2" parent="." instance=ExtResource("6_v7vk0")]
+position = Vector2(322, 127)
+
+[node name="Meat3" parent="." instance=ExtResource("6_v7vk0")]
+position = Vector2(314, 446)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.505882)
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -182.0
+offset_top = 39.0
+offset_right = 182.0
+offset_bottom = 154.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_yrl36")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -22.0
+offset_right = 46.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_d8b0n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -243.0
+offset_top = -234.0
+offset_right = 243.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ldjpp")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -33.0
+offset_right = 171.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Panel2/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel2/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "Time Survived:"
+label_settings = SubResource("LabelSettings_v5y8d")
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/Panel2/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "14:59"
+label_settings = SubResource("LabelSettings_v5y8d")
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/Panel2/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "Monsters Defeated:"
+label_settings = SubResource("LabelSettings_v5y8d")
+
+[node name="MonstersLabel" type="Label" parent="CanvasLayer/Panel2/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "1238"
+label_settings = SubResource("LabelSettings_v5y8d")
+horizontal_alignment = 2

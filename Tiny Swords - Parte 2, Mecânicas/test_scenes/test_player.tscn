@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=3 uid="uid://c83ly5b3r0ir1"]
+
+[ext_resource type="Texture2D" uid="uid://drlap5nxx8qde" path="res://addons/Tiny Swords/Factions/Knights/Troops/Warrior/Purple/Warrior_Purple.png" id="1_nrcik"]
+[ext_resource type="PackedScene" uid="uid://bde0jlck61cdp" path="res://player/player.tscn" id="2_lx3f2"]
+[ext_resource type="PackedScene" uid="uid://qlbju1yy86rl" path="res://enemies/goblin.tscn" id="3_y6mxm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_270gt"]
+line_spacing = 23.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="WarriorPurple" type="Sprite2D" parent="."]
+position = Vector2(1791.5, 377.5)
+texture = ExtResource("1_nrcik")
+
+[node name="Label" type="Label" parent="WarriorPurple"]
+offset_left = 566.0
+offset_top = -689.0
+offset_right = 606.0
+offset_bottom = -666.0
+scale = Vector2(1.66722, 1.66722)
+text = "idle
+"
+
+[node name="Label9" type="Label" parent="WarriorPurple"]
+offset_left = -505.5
+offset_top = -838.5
+offset_right = -263.5
+offset_bottom = -815.5
+scale = Vector2(4.15235, 4.15235)
+text = "0         1         2         3         4         5"
+
+[node name="Label10" type="Label" parent="WarriorPurple"]
+offset_left = -613.0
+offset_top = -728.0
+offset_right = -600.0
+offset_bottom = -383.0
+scale = Vector2(4.15235, 4.15235)
+text = "0 1 2 3 4 5 6 7"
+label_settings = SubResource("LabelSettings_270gt")
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="WarriorPurple"]
+offset_left = 583.0
+offset_top = -506.0
+offset_right = 623.0
+offset_bottom = -483.0
+scale = Vector2(1.66722, 1.66722)
+text = "run"
+
+[node name="Label3" type="Label" parent="WarriorPurple"]
+offset_left = 566.0
+offset_top = -315.0
+offset_right = 669.0
+offset_bottom = -292.0
+scale = Vector2(1.66722, 1.66722)
+text = "attack_side_1"
+
+[node name="Label4" type="Label" parent="WarriorPurple"]
+offset_left = 563.0
+offset_top = -119.0
+offset_right = 666.0
+offset_bottom = -96.0
+scale = Vector2(1.66722, 1.66722)
+text = "attack_side_2"
+
+[node name="Label5" type="Label" parent="WarriorPurple"]
+offset_left = 553.0
+offset_top = 69.0
+offset_right = 668.0
+offset_bottom = 92.0
+scale = Vector2(1.66722, 1.66722)
+text = "attack_down_1"
+
+[node name="Label6" type="Label" parent="WarriorPurple"]
+offset_left = 571.0
+offset_top = 251.0
+offset_right = 686.0
+offset_bottom = 274.0
+scale = Vector2(1.66722, 1.66722)
+text = "attack_down_2"
+
+[node name="Label7" type="Label" parent="WarriorPurple"]
+offset_left = 571.0
+offset_top = 456.0
+offset_right = 686.0
+offset_bottom = 479.0
+scale = Vector2(1.66722, 1.66722)
+text = "attack_up_1"
+
+[node name="Label8" type="Label" parent="WarriorPurple"]
+offset_left = 571.0
+offset_top = 656.0
+offset_right = 686.0
+offset_bottom = 679.0
+scale = Vector2(1.66722, 1.66722)
+text = "attack_up_2"
+
+[node name="Player" parent="." instance=ExtResource("2_lx3f2")]
+position = Vector2(542, 264)
+
+[node name="Pawn" parent="." instance=ExtResource("3_y6mxm")]
+position = Vector2(543, 406)
+
+[node name="Pawn2" parent="." instance=ExtResource("3_y6mxm")]
+position = Vector2(351, 334)
+
+[node name="Pawn3" parent="." instance=ExtResource("3_y6mxm")]
+position = Vector2(791, 438)
+
+[node name="Pawn4" parent="." instance=ExtResource("3_y6mxm")]
+position = Vector2(359, 137)
