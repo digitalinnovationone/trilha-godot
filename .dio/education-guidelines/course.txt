@@ -1,0 +1,34 @@
+🌟 **Guideline para cursos:**
+
+----------------------------------------------------------------------
+🎥 ** 1. Guia de aula inicial de conteúdos **
+----------------------------------------------------------------------
+
+Formato:
+🧑‍🏫 Nome da aula: introdução
+🕑 Tempo máxima: 10 min
+🎥 Em tela: Expert e o conteúdo do Readme.md lado a lado
+-------------------------------
+
+Roteiro:
+
+- (1) Se apresente como especialista
+- (2) fala o título do curso ou projeto e o nível de conhecimento (básico, intermediário, avançado ou especialista), 
+- (3) Diga quais as Habilidades e Sub-habilidades que serão desenvolvidas, ao longo desse curso/projeto 
+- (4) Explique como será a dinâmica desse conteúdo 
+- (5) Descreva as sub-habilidades ou habilidades prévias requeridas com o nível de conhecimento (básico, intermediário, avançado ou especialista) para o curso ou projeto e 
+- (6) Explique o que o estudante estará apto a fazer após concluir o curso ou projeto, ou que tipo de projeto/solução ele estará apto a construir.
+
+----------------------------------------------------------------------
+🎥 ** 3. Boas Práticas na hora de gravar **
+----------------------------------------------------------------------
+✅ TENHA EM MENTE SEMPRE:
+  - Os conteúdos podem ser consumidos e devem funcionar isoladamente
+
+  - Os Alunos podem consumir os conteúdos on demand, sem seguir uma sequência, com foco em se certificar em uma habilidade específica
+
+❌ EVITE USAR:
+  - Começar o curso com frases como: "Agora que você já viu XX, vamos ver YY e já sai realizando."
+
+  - Referir-se a tópicos anteriores em projetos: "Anteriormente, falamos sobre XXX... agora falaremos sobre OO."
+
