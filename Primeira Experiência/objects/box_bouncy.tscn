@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dehv2mgiqnslc"]
+
+[ext_resource type="PackedScene" uid="uid://ln364kkve1je" path="res://objects/box_regular.tscn" id="1_1biho"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lqpfj"]
+bounce = 0.7
+
+[node name="Box Bouncy" instance=ExtResource("1_1biho")]
+physics_material_override = SubResource("PhysicsMaterial_lqpfj")
+
+[node name="ColorRect" parent="CollisionShape2D" index="0"]
+color = Color(0.0235294, 0.898039, 0.54902, 1)

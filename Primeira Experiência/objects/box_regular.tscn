@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://ln364kkve1je"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtx36"]
+size = Vector2(64, 64)
+
+[node name="Box Regular" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mtx36")
+debug_color = Color(0, 0.580392, 0.796078, 0.419608)
+
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D"]
+offset_left = -31.0
+offset_top = -31.0
+offset_right = 31.0
+offset_bottom = 31.0
+metadata/_edit_use_anchors_ = true

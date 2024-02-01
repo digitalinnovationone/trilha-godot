@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://cejhnqe8yx8fj"]
+
+[ext_resource type="PackedScene" uid="uid://ln364kkve1je" path="res://objects/box_regular.tscn" id="1_5bx0g"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_7x30r"]
+[ext_resource type="PackedScene" uid="uid://dehv2mgiqnslc" path="res://objects/box_bouncy.tscn" id="2_73cww"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrqki"]
+size = Vector2(1152, 64)
+
+[node name="World" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_7x30r")
+object_templates = Array[PackedScene]([ExtResource("1_5bx0g"), ExtResource("2_73cww")])
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.239216, 0.658824, 0.960784, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(576, 617)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_hrqki")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D"]
+offset_left = -576.0
+offset_top = -31.0
+offset_right = 576.0
+offset_bottom = 31.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Box Regular" parent="." instance=ExtResource("1_5bx0g")]
+position = Vector2(314, 134)
+
+[node name="Box Regular2" parent="." instance=ExtResource("1_5bx0g")]
+position = Vector2(500, 218)
+
+[node name="Box Regular3" parent="." instance=ExtResource("1_5bx0g")]
+position = Vector2(551, 77)
+
+[node name="Box Regular4" parent="." instance=ExtResource("1_5bx0g")]
+position = Vector2(789, 119)
+
+[node name="Box Regular5" parent="." instance=ExtResource("1_5bx0g")]
+position = Vector2(839, 249)
+
+[node name="Box Bouncy" parent="." instance=ExtResource("2_73cww")]
+position = Vector2(286, 47)
+
+[node name="Box Bouncy2" parent="." instance=ExtResource("2_73cww")]
+position = Vector2(467, 345)
+
+[node name="Box Bouncy3" parent="." instance=ExtResource("2_73cww")]
+position = Vector2(659, 182)
+
+[node name="Box Bouncy4" parent="." instance=ExtResource("2_73cww")]
+position = Vector2(882, 141)
