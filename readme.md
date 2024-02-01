@@ -6,14 +6,14 @@
       src="https://raw.githubusercontent.com/digitalinnovationone/template-github-trilha/main/.github/assets/logo.webp" 
       width="100px" 
     />
-    <h1>Título do Curso ou Projeto</h1>
+    <h1>Introdução ao Desenvolvimento de Jogos com Godot</h1>
   </p>
 </div>
 <!--END_SECTION:header-->
 
 <p align="center">
   <img src="https://img.shields.io/static/v1?label=DIO&message=Education&color=E94D5F&labelColor=202024" alt="DIO Project" />
-  <a href="NIVEL"><img  src="https://img.shields.io/static/v1?label=Nivel&message=Basico&color=E94D5F&labelColor=202024" alt="Nivel"></a>
+  <a href="NIVEL"><img  src="https://img.shields.io/static/v1?label=Nivel&message=Basico Intermediário&color=E94D5F&labelColor=202024" alt="Nivel"></a>
 
 </p>
 
@@ -23,31 +23,30 @@
   <tr>
     <td>
         <p align="center">Expert</p>
-        <a href="https://github.com/felipeAguiarCode">
-        <img src="https://avatars0.githubusercontent.com/u/37452836?v=3&s=115" alt="@felipeAguiarCode"><br>
+        <a href="https://github.com/RafaSKB">
+        <img src="https://avatars0.githubusercontent.com/u/2331058?v=4&s=115" alt="@RafaSKB"><br>
       </a>
     </td>
     <td colspan="3">
-    <p>🎉 10y+ em sistemas comerciais com .NET C# e NODE.JS.
+    <p>
+      🦆 Fundador e desenvolvedor no estúdio de jogos <a href="https://patosaur.com">Patosaur</a>.
       <br/>
-     🌟 Desenvolvedor fullstack - Coordenador de educação na DIO
-      <br/>
-    👨‍💻 Foco em front-ends SPA com React, Angular e Vue.js
+      🎉 Mais de 10 anos em desenvolvimento de jogos.
     </p>
       <a 
-      href="https://www.linkedin.com/in/felipe-me/" 
+      href="https://www.linkedin.com/in/rafaskoberg/" 
       align="center">
            <img 
             align="center" 
-            alt="Material de Apoio" 
+            alt="LinkedIn" 
             src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"
             >
         </a>
-        <a href="https://www.instagram.com/felipeaguiar.exe/" target="_blank">
+        <a href="https://github.com/rafaskb" target="_blank">
             <img 
               align="center" 
-              alt="Instagram" 
-              src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"
+              alt="Github" 
+              src="https://img.shields.io/badge/Github-FFFFFF?style=for-the-badge&logo=github&logoColor=171515"
             >
         </a>
     </td>
@@ -59,44 +58,23 @@
 <br/>
 <br/>
 
-## 💻 Sobre o Projeto
+## 💻 Sobre o Repositório
 
-Vamos construir uma página spa, responsiva, para usar em diversos tipos de micro, pequena e média empresas. Contém as seguintes seções: Header, Navigation, Home, Sobre, Serviços, Depoimentos, Contato e Footer que faz xxx e yyy
+Esse repositório contém todos os projetos criados durante a trilha de desenvolvimento de jogos com Godot. É possível fazer download do repositório e abrir os projetos aqui presentes diretamente no Godot (versão 4.2.1).
 
-## 📚 Pré-requisitos de Habilidades e Níveis de Conhecimento
-
-Antes de ingressar neste conteúdo, é necessário possuir conhecimento prévio nas seguintes áreas:
-
-- [habilidades ou conhecimentos prévios necessários] | [Básico, Intermediário, Avançado ou Especialista]
-
-- _Exemplo_:
-
-  - Java | Básico
-  - Gerenciamento de pacotes | Básico
-  -
-
-- [Outros pré-requisitos, se aplicável]
-
-- _Exemplo_:
-  - Lógica de programação
-  - Javascript
+Vamos aprender a desenvolver jogos do zero, começando nos fundamentos básicos do que é um jogo, aprendendo a desenvolver utilizando Godot, e criar jogos completos que poderão ser usados para construir um portfólio.
 
 ## 🛠️ Habilidades e Sub-habilidades que vamos aprender neste conteúdo
 
-- [Lista das habilidades principais a serem desenvolvidas]
-
-  - [Subhabilidades relacionadas, se aplicável]
-
-- _Exemplo_:
-  - Java
-    - Api Rest
+- Idealização de um jogo com base em pilares de desenvolvimento.
+- Desenvolvimento de jogos 2D e 3D utilizando Godot.
+- Programação de scripts para jogos com a linguagem GDScript.
 
 ## 🎯 Objetivos e Resultados Esperados
 
 Após a conclusão do curso/projeto, os estudantes estarão aptos a:
 
-- [Descrição do que os estudantes serão capazes de fazer]
-- [Projetos ou soluções que os estudantes estarão aptos a construir]
+- Idealizar e desenvolver seus próprios jogos em Godot.
 
 <!--START_SECTION:footer-->
 
