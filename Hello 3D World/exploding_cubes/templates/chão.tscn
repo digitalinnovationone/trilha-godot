@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5py0f0vvf40h"]
+
+[ext_resource type="Material" uid="uid://cunp5bjl50uwt" path="res://exploding_cubes/materials/dirt.tres" id="1_3nrly"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_asjck"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6wqjg"]
+size = Vector3(2.4389, 1.87451, 2.17969)
+
+[node name="Terreno" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59085, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.43858, 0, 0, 0, 1.83527, 0, 0, 0, 2.14213, 0, -0.64676, 0)
+material_override = ExtResource("1_3nrly")
+mesh = SubResource("BoxMesh_asjck")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.999986, 0, 0, 0, 1, 0, 0, 0, 1, 0.0226127, -0.659423, 0)
+shape = SubResource("BoxShape3D_6wqjg")

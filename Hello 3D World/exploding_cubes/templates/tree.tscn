@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvgbx1reuukoo"]
+
+[ext_resource type="Material" uid="uid://bax1is688uniw" path="res://exploding_cubes/materials/trunk.tres" id="1_ytp6b"]
+[ext_resource type="Material" uid="uid://c13gjm1kvn6e3" path="res://exploding_cubes/materials/leaves.tres" id="2_2xeid"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bu573"]
+top_radius = 0.3
+bottom_radius = 0.3
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pp8av"]
+radius = 0.7
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_teoqw"]
+height = 3.39255
+
+[node name="Tree" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01457, 0)
+material_override = ExtResource("1_ytp6b")
+mesh = SubResource("CylinderMesh_bu573")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.43436, 0)
+material_override = ExtResource("2_2xeid")
+mesh = SubResource("CapsuleMesh_pp8av")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6905, 0)
+shape = SubResource("CapsuleShape3D_teoqw")

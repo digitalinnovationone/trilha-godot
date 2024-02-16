@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmr2popgrb05u"]
+
+[ext_resource type="Material" uid="uid://c2d2op0p4by6" path="res://exploding_cubes/materials/rubber.tres" id="1_cmx7f"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hv06t"]
+bounce = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_hudem"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_k7wcm"]
+
+[node name="RubberBall" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_hv06t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_cmx7f")
+mesh = SubResource("SphereMesh_hudem")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_k7wcm")

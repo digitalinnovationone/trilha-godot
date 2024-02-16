@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://6cmts0mny50e"]
+
+[ext_resource type="Material" uid="uid://cunp5bjl50uwt" path="res://exploding_cubes/materials/dirt.tres" id="1_mabsy"]
+[ext_resource type="Material" uid="uid://c3ayiqmcrwkb6" path="res://exploding_cubes/materials/grass.tres" id="2_xsgww"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_asjck"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vqbtl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6wqjg"]
+size = Vector3(2.5918, 2.27148, 2.19629)
+
+[node name="Terreno" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59085, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.43858, 0, 0, 0, 1.83527, 0, 0, 0, 2.14213, 0, -0.64676, 0)
+material_override = ExtResource("1_mabsy")
+mesh = SubResource("BoxMesh_asjck")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.56022, 0, 0, 0, 0.394519, 0, 0, 0, 2.1891, 0, 0.460793, 0)
+material_override = ExtResource("2_xsgww")
+mesh = SubResource("BoxMesh_vqbtl")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.999986, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.460938, 0)
+shape = SubResource("BoxShape3D_6wqjg")

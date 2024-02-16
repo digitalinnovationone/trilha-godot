@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhiwjlq62xhkp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x4ebe"]
+size = Vector3(10, 0.2, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lssqj"]
+size = Vector3(10, 1, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_17ebg"]
+size = Vector3(6, 1, 0.2)
+
+[sub_resource type="PrismMesh" id="PrismMesh_sv5xh"]
+size = Vector3(6, 5, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3ohaf"]
+size = Vector3(10, 6, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7pnid"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rly51"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nqv44"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r33yp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ywjch"]
+size = Vector3(1, 2, 1)
+
+[node name="Scene" type="Node3D"]
+
+[node name="Chão" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_x4ebe")
+
+[node name="Parede1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -3)
+mesh = SubResource("BoxMesh_lssqj")
+
+[node name="Parede2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 0.5, 2.18557e-07)
+mesh = SubResource("BoxMesh_17ebg")
+
+[node name="Teto1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 3.5, 2.18557e-08)
+mesh = SubResource("PrismMesh_sv5xh")
+
+[node name="Teto2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 3.43301, -1.51795)
+mesh = SubResource("BoxMesh_3ohaf")
+
+[node name="Geladeira" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.27912, 1, -1.41713)
+mesh = SubResource("BoxMesh_7pnid")
+
+[node name="Sofá" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.76619, -0.642614, -5.09906e-08, 0, -4.37114e-08, 1, -0.642614, -0.76619, -9.63297e-08, -3.13201, 0.561684, 0.963852)
+mesh = SubResource("BoxMesh_rly51")
+
+[node name="Mesa" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.83437, 0.0345375, -2.99701e-08, 6.55496e-08, -2.18277e-08, 0.587756, 0.0407929, -0.706423, -5.66184e-08, -1.61048, 0.402169, -0.240663)
+mesh = SubResource("BoxMesh_nqv44")
+
+[node name="Mesa2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.00357202, 0.70726, -2.99701e-08, 9.97269e-08, 8.02331e-08, 0.587756, 0.835359, -0.00302425, -5.66184e-08, 0.549991, 0.402169, -2.38631)
+mesh = SubResource("BoxMesh_nqv44")
+
+[node name="Mesa3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.633367, 0.461161, -2.99701e-08, 3.92485e-08, 1.19632e-07, 0.587756, 0.544686, 0.536244, -5.66184e-08, 2.62468, 0.402169, -0.958932)
+mesh = SubResource("BoxMesh_nqv44")
+
+[node name="TV" type="MeshInstance3D" parent="Mesa3"]
+transform = Transform3D(0.74703, 1.49012e-07, -1.77636e-14, -8.9407e-08, 1.10487, -4.26326e-14, 0, 1.42109e-14, 1.08301, 0, 2.38419e-07, 1.05114)
+mesh = SubResource("BoxMesh_r33yp")
+
+[node name="Estante1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.83437, 0.0177463, -4.3258e-08, 6.55496e-08, -1.12156e-08, 0.848352, 0.0407929, -0.362979, -8.17215e-08, -4.49673, 0.508688, 1.5226)
+mesh = SubResource("BoxMesh_ywjch")
+
+[node name="Estante2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.83437, 0.0177463, -4.3258e-08, 6.55496e-08, -1.12156e-08, 0.848352, 0.0407929, -0.362979, -8.17215e-08, -4.29735, 0.508688, -2.43754)
+mesh = SubResource("BoxMesh_ywjch")
+
+[node name="Estante3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.83437, 0.0177463, -4.3258e-08, 6.55496e-08, -1.12156e-08, 0.848352, 0.0407929, -0.362979, -8.17215e-08, 3.91376, 0.508689, -2.03609)
+mesh = SubResource("BoxMesh_ywjch")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.94494, 7.22258)
+projection = 1
+current = true
+size = 6.04951
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.588774, -0.383965, 0.711278, 2.98023e-08, 0.87997, 0.475029, -0.808298, -0.279685, 0.518103, 0.751416, 6.87427, 5.87513)

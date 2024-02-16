@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://diqrs77khxkhv"]
+
+[ext_resource type="Script" path="res://kitchen/player.gd" id="1_w8e3l"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h31na"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_w8e3l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_h31na")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67491, 0)
+fov = 60.0
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera"]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -2.5)
+
+[node name="Marker3D" type="Marker3D" parent="Camera"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.127602, -2.03759)

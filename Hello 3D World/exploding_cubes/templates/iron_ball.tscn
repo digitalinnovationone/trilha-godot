@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dui7avculmytt"]
+
+[ext_resource type="Material" uid="uid://iiri50f5ugy" path="res://exploding_cubes/materials/iron.tres" id="1_137qu"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p5olc"]
+friction = 0.21
+
+[sub_resource type="SphereMesh" id="SphereMesh_nblbg"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6hygm"]
+radius = 1.0
+
+[node name="IronBall" type="RigidBody3D"]
+mass = 20.0
+physics_material_override = SubResource("PhysicsMaterial_p5olc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_137qu")
+mesh = SubResource("SphereMesh_nblbg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_6hygm")
