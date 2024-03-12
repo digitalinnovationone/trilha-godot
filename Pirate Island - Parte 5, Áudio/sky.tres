@@ -1,0 +1,15 @@
+[gd_resource type="VisualShader" format=3 uid="uid://bcavqmvhperp"]
+
+[resource]
+code = "shader_type sky;
+
+
+
+void sky() {
+}
+"
+mode = 3
+flags/use_half_res_pass = false
+flags/use_quarter_res_pass = false
+flags/disable_fog = false
+flags/use_debanding = false

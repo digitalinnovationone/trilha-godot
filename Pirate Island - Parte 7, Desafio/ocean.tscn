@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://v087wp6sllav"]
+
+[ext_resource type="Shader" uid="uid://1nw2s6a4u3g7" path="res://shaders/ocean.tres" id="1_gf1nl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_67nsg"]
+render_priority = 0
+shader = ExtResource("1_gf1nl")
+shader_parameter/Speed = 0.15
+shader_parameter/Height = 0.4
+shader_parameter/Albedo = Color(0.0509804, 0.239216, 0.470588, 1)
+shader_parameter/Alpha = 0.6
+shader_parameter/Metallic = 0.74
+shader_parameter/Roughness = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3p6vf"]
+size = Vector2(150, 150)
+subdivide_width = 100
+subdivide_depth = 100
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dgw2"]
+albedo_color = Color(0.0431373, 0.117647, 0.45098, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_qh5if"]
+
+[node name="Ocean" type="Node3D"]
+
+[node name="TopLayer" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_67nsg")
+mesh = SubResource("PlaneMesh_3p6vf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.33, 0)
+
+[node name="BottomLayer" type="MeshInstance3D" parent="StaticBody3D"]
+material_override = SubResource("StandardMaterial3D_1dgw2")
+mesh = SubResource("PlaneMesh_3p6vf")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_qh5if")

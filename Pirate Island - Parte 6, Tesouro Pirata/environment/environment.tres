@@ -1,0 +1,36 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://l7x04p6usx0t"]
+
+[ext_resource type="Texture2D" uid="uid://cefuqemlc06ub" path="res://skybox_textures/Scene_-_Root_baseColor.jpeg" id="1_cvjhk"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dummo"]
+panorama = ExtResource("1_cvjhk")
+
+[sub_resource type="Sky" id="Sky_0mo2h"]
+sky_material = SubResource("PanoramaSkyMaterial_dummo")
+
+[resource]
+background_mode = 2
+background_color = Color(0.109804, 0.133333, 0.227451, 1)
+sky = SubResource("Sky_0mo2h")
+sky_rotation = Vector3(0, 0, 3.14159)
+ambient_light_energy = 16.0
+tonemap_mode = 3
+tonemap_exposure = 0.8
+tonemap_white = 1.1
+ssao_enabled = true
+ssao_radius = 0.66
+ssao_intensity = 3.5
+ssao_power = 1.5529
+ssil_enabled = true
+ssil_intensity = 2.0
+sdfgi_enabled = true
+glow_enabled = true
+fog_light_color = Color(1, 1, 1, 1)
+fog_aerial_perspective = 0.953
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_anisotropy = 0.9
+volumetric_fog_sky_affect = 0.401
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.1

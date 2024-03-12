@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0isg1nhntahw"]
+
+[ext_resource type="PackedScene" uid="uid://bwu06xief2ecc" path="res://world.tscn" id="1_knx6x"]
+[ext_resource type="Environment" uid="uid://l7x04p6usx0t" path="res://environment/environment.tres" id="2_6llih"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_gpr3g"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 15.0
+dof_blur_far_transition = 10.0
+dof_blur_amount = 0.05
+
+[sub_resource type="FogMaterial" id="FogMaterial_3a4xm"]
+albedo = Color(0.678431, 1, 0.686275, 1)
+height_falloff = 2.82842
+
+[sub_resource type="FogMaterial" id="FogMaterial_4tf81"]
+albedo = Color(1, 0.494118, 0.117647, 1)
+emission = Color(0.905882, 0.517647, 0, 1)
+height_falloff = 2.21914
+edge_fade = 0.146409
+
+[node name="Game" type="Node3D"]
+
+[node name="World" parent="." instance=ExtResource("1_knx6x")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.773067, -0.00149557, -0.634322, 0.0214668, 0.999363, -0.0285185, 0.633961, -0.0356636, -0.772542, 4.55721, 2.14249, -3.66974)
+attributes = SubResource("CameraAttributesPractical_gpr3g")
+fov = 90.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_6llih")
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(-0.817373, -0.378753, 0.434105, -0.0108437, 0.763493, 0.645725, -0.576006, 0.523091, -0.628166, 8.06198, 10.3111, -6.09307)
+light_color = Color(1, 1, 0.764706, 1)
+light_energy = 2.0
+shadow_enabled = true
+directional_shadow_max_distance = 20.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.32254, 2.76418, -11.8678)
+light_color = Color(0, 1, 0.72549, 1)
+light_energy = 5.155
+light_volumetric_fog_energy = 7.977
+shadow_enabled = true
+omni_range = 12.9858
+omni_attenuation = 0.435275
+
+[node name="SpotLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56404, 6.19896, -4.98654)
+light_color = Color(1, 0, 0, 1)
+light_energy = 9.186
+light_volumetric_fog_energy = 2.626
+shadow_enabled = true
+omni_range = 20.0
+omni_attenuation = 0.757859
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(0.955792, -0.01335, -0.293741, 0, 0.998969, -0.0454015, 0.294044, 0.0433944, 0.954806, 3.45339, 1.73912, -0.723033)
+light_color = Color(1, 0.54902, 0, 1)
+light_energy = 2.612
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(0.860741, 0.139438, -0.489573, 0, 0.961752, 0.273921, 0.509043, -0.235775, 0.827819, -0.784426, 5.26654, 17.808)
+light_color = Color(0, 0.501961, 1, 1)
+light_energy = 2.86
+light_volumetric_fog_energy = 16.0
+shadow_enabled = true
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(-0.690228, -0.0586326, 0.721212, 0, 0.996712, 0.08103, -0.723592, 0.0559292, -0.687959, 4.03221, 2.423, 14.8854)
+light_color = Color(0, 0.501961, 1, 1)
+light_energy = 9.312
+light_volumetric_fog_energy = 16.0
+shadow_enabled = true
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(0.426805, -0.30387, 0.851763, 0.0505047, 0.948397, 0.313037, -0.902932, -0.0905878, 0.420128, -2.66277, 3.77011, 0.956008)
+light_energy = 9.352
+light_negative = true
+spot_range = 10.6084
+spot_attenuation = 0.482969
+spot_angle = 57.4755
+spot_angle_attenuation = 4.43827
+
+[node name="Fog" type="Node3D" parent="."]
+
+[node name="FogVolume" type="FogVolume" parent="Fog"]
+transform = Transform3D(0.957289, 0.0690126, 0.280775, -0.012068, 0.979787, -0.19968, -0.28888, 0.187763, 0.938772, -7.00826, 1.86526, -1.26228)
+size = Vector3(4.31853, 3.47858, 9.185)
+shape = 0
+material = SubResource("FogMaterial_3a4xm")
+
+[node name="FogVolume2" type="FogVolume" parent="Fog"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4421, 2.33774, -0.72418)
+size = Vector3(1.01931, 1.55637, 0.72451)
+material = SubResource("FogMaterial_4tf81")

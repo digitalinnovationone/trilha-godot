@@ -1,0 +1,332 @@
+[gd_scene load_steps=30 format=3 uid="uid://b0isg1nhntahw"]
+
+[ext_resource type="PackedScene" uid="uid://v087wp6sllav" path="res://ocean.tscn" id="1_76251"]
+[ext_resource type="PackedScene" uid="uid://bwu06xief2ecc" path="res://world.tscn" id="1_knx6x"]
+[ext_resource type="Environment" uid="uid://l7x04p6usx0t" path="res://environment/environment.tres" id="2_6llih"]
+[ext_resource type="Shader" uid="uid://dih8dqj4cs7xc" path="res://shaders/dissolve.tres" id="2_uyol2"]
+[ext_resource type="Script" path="res://camera/follow_camera.gd" id="4_5j34v"]
+[ext_resource type="Texture2D" uid="uid://b85yc70f6alf1" path="res://addons/Kenney's Particles/circle_05.png" id="6_m2vx5"]
+[ext_resource type="Texture2D" uid="uid://daf4cv25l6i7t" path="res://addons/Kenney's Particles/trace_07.png" id="7_53cip"]
+[ext_resource type="PackedScene" uid="uid://dyrjgteqxcd6x" path="res://player/player.tscn" id="8_33fh4"]
+[ext_resource type="AudioStream" uid="uid://bgadf6ts11yg8" path="res://audio/ambience/ambience-sea-and-waves.ogg" id="10_s7hiq"]
+[ext_resource type="Script" path="res://treasure/treasure_spawner.gd" id="11_4te7b"]
+[ext_resource type="AudioStream" uid="uid://bclagl4dn8dwm" path="res://audio/music/Ossuary 3 - Words.mp3" id="11_mer2d"]
+[ext_resource type="PackedScene" uid="uid://6lgpfxgd6vqw" path="res://treasure/treasure.tscn" id="12_76567"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bm3m4"]
+render_priority = 0
+shader = ExtResource("2_uyol2")
+shader_parameter/AlbedoColor = Color(0, 0.447059, 0.188235, 1)
+shader_parameter/EmissionColor = Color(0.588235, 1, 1, 1)
+shader_parameter/Speed = 0.75
+
+[sub_resource type="SphereMesh" id="SphereMesh_gsjq4"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_gpr3g"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 15.0
+dof_blur_far_transition = 10.0
+dof_blur_amount = 0.05
+
+[sub_resource type="FogMaterial" id="FogMaterial_3a4xm"]
+albedo = Color(0.678431, 1, 0.686275, 1)
+height_falloff = 2.82842
+
+[sub_resource type="FogMaterial" id="FogMaterial_4tf81"]
+albedo = Color(1, 0.494118, 0.117647, 1)
+emission = Color(0.905882, 0.517647, 0, 1)
+height_falloff = 2.21914
+edge_fade = 0.146409
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3nl7"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("6_m2vx5")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_njuie"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.334884, 1), 0.0, 0.0, 0, 0, Vector2(0.474419, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_caqvf"]
+curve = SubResource("Curve_njuie")
+
+[sub_resource type="Curve" id="Curve_urexm"]
+max_value = 100.0
+_data = [Vector2(0, 100), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_x52eu"]
+curve = SubResource("Curve_urexm")
+
+[sub_resource type="Curve" id="Curve_xqsd0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.506977, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vry54"]
+curve = SubResource("Curve_xqsd0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4llyh"]
+emission_shape = 3
+emission_box_extents = Vector3(2, 1, 2)
+gravity = Vector3(0, 0, 0)
+linear_accel_max = 0.1
+radial_accel_max = 0.1
+tangential_accel_max = 0.1
+damping_max = 0.1
+scale_min = 0.03
+scale_max = 0.08
+scale_curve = SubResource("CurveTexture_vry54")
+color = Color(0.733333, 1, 0, 1)
+alpha_curve = SubResource("CurveTexture_caqvf")
+emission_curve = SubResource("CurveTexture_x52eu")
+turbulence_enabled = true
+turbulence_noise_scale = 3.618
+turbulence_noise_speed = Vector3(0.1, 0.1, 0.1)
+collision_mode = 2
+collision_use_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_xjfhv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i4oep"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("7_53cip")
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h5pnb"]
+emission_shape = 3
+emission_box_extents = Vector3(10, 0, 7)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 9.98
+initial_velocity_max = 9.98
+scale_min = 0.2
+scale_max = 0.5
+collision_mode = 2
+collision_use_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_qm6er"]
+
+[node name="Game" type="Node3D"]
+
+[node name="Ocean" parent="." instance=ExtResource("1_76251")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.286809, 0)
+
+[node name="World" parent="." instance=ExtResource("1_knx6x")]
+
+[node name="DissolveCube" type="MeshInstance3D" parent="World"]
+transform = Transform3D(11.6593, 0, 0, 0, 4.23856, 0, 0, 0, 11.6593, -44.9547, -0.044053, 13.3887)
+material_override = SubResource("ShaderMaterial_bm3m4")
+mesh = SubResource("SphereMesh_gsjq4")
+
+[node name="GPUParticlesCollisionHeightField3D" type="GPUParticlesCollisionHeightField3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.365131, 2.45023, -2.82428)
+size = Vector3(19.0568, 6.30638, 13.9651)
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("follow_node", "look_at_node")]
+transform = Transform3D(0.999867, -0.00249002, 0.016143, 1.16415e-10, 0.988312, 0.152445, -0.0163339, -0.152424, 0.98818, -1.10673, 1.48739, 1.81157)
+attributes = SubResource("CameraAttributesPractical_gpr3g")
+fov = 70.0
+script = ExtResource("4_5j34v")
+follow_node = NodePath("../Player/CameraPosition")
+follow_lerp = 0.01
+look_at_node = NodePath("../Player")
+look_at_offset = Vector3(0, 0.5, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_6llih")
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D - EDITOR ONLY" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.57701, 0)
+light_energy = 1.251
+editor_only = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(0.899508, 0.258072, -0.352539, -0.181744, 0.954797, 0.235228, 0.397309, -0.147518, 0.905751, 8.06198, 10.3111, -6.09307)
+light_color = Color(0.258824, 0.592157, 1, 1)
+shadow_enabled = true
+directional_shadow_max_distance = 20.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.32254, 2.76418, -11.8678)
+light_color = Color(0, 1, 0.72549, 1)
+light_energy = 5.155
+light_volumetric_fog_energy = 7.977
+shadow_enabled = true
+omni_range = 12.9858
+omni_attenuation = 0.435275
+
+[node name="SpotLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56404, 6.19896, -4.98654)
+light_color = Color(1, 0, 0, 1)
+light_energy = 9.186
+light_volumetric_fog_energy = 2.626
+shadow_enabled = true
+omni_range = 20.0
+omni_attenuation = 0.757859
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(0.955792, -0.01335, -0.293741, 0, 0.998969, -0.0454015, 0.294044, 0.0433944, 0.954806, 3.45339, 1.73912, -0.723033)
+light_color = Color(1, 0.54902, 0, 1)
+light_energy = 2.612
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(0.860741, 0.139438, -0.489573, 0, 0.961752, 0.273921, 0.509043, -0.235775, 0.827819, -0.784426, 5.26654, 17.808)
+light_color = Color(0, 0.501961, 1, 1)
+light_energy = 2.86
+light_volumetric_fog_energy = 16.0
+shadow_enabled = true
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(-0.690228, -0.0586326, 0.721212, 0, 0.996712, 0.08103, -0.723592, 0.0559292, -0.687959, 4.03221, 2.423, 14.8854)
+light_color = Color(0, 0.501961, 1, 1)
+light_energy = 9.312
+light_volumetric_fog_energy = 16.0
+shadow_enabled = true
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(0.426805, -0.30387, 0.851763, 0.0505047, 0.948397, 0.313037, -0.902932, -0.0905878, 0.420128, -2.66277, 3.77011, 0.956008)
+light_energy = 9.352
+light_negative = true
+spot_range = 10.6084
+spot_attenuation = 0.482969
+spot_angle = 57.4755
+spot_angle_attenuation = 4.43827
+
+[node name="Fog" type="Node3D" parent="."]
+
+[node name="FogVolume" type="FogVolume" parent="Fog"]
+transform = Transform3D(0.957289, 0.0690126, 0.280775, -0.012068, 0.979787, -0.19968, -0.28888, 0.187763, 0.938772, -7.00826, 1.86526, -1.26228)
+size = Vector3(4.31853, 3.47858, 9.185)
+shape = 0
+material = SubResource("FogMaterial_3a4xm")
+
+[node name="FogVolume2" type="FogVolume" parent="Fog"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4421, 2.33774, -0.72418)
+size = Vector3(1.01931, 1.55637, 0.72451)
+material = SubResource("FogMaterial_4tf81")
+
+[node name="VFX" type="Node3D" parent="."]
+
+[node name="Fireflies" type="GPUParticles3D" parent="VFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35738, 1.31562, 0)
+material_override = SubResource("StandardMaterial3D_b3nl7")
+amount = 50
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_4llyh")
+draw_pass_1 = SubResource("QuadMesh_xjfhv")
+
+[node name="Fireflies3" type="GPUParticles3D" parent="VFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.53389, 0.649053, -5.13553)
+material_override = SubResource("StandardMaterial3D_b3nl7")
+amount = 50
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_4llyh")
+draw_pass_1 = SubResource("QuadMesh_xjfhv")
+
+[node name="Fireflies2" type="GPUParticles3D" parent="VFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.14811, 1.92462, -2.31893)
+material_override = SubResource("StandardMaterial3D_b3nl7")
+amount = 50
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_4llyh")
+draw_pass_1 = SubResource("QuadMesh_xjfhv")
+
+[node name="Rain" type="GPUParticles3D" parent="VFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12456, 5.11892, -1.70519)
+visible = false
+material_override = SubResource("StandardMaterial3D_i4oep")
+amount = 5000
+lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_h5pnb")
+draw_pass_1 = SubResource("QuadMesh_qm6er")
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("8_33fh4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.21046, 0.906421, -0.547011)
+JUMP_VELOCITY = 4.0
+lerp_factor = 0.2
+rotation_lerp_factor = 0.2
+camera = NodePath("../Camera3D")
+
+[node name="CameraPosition" type="Marker3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89485, -1.82061)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.505799, 0)
+light_energy = 0.25
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.66
+omni_range = 1.408
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Ambience" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("10_s7hiq")
+volume_db = 3.0
+autoplay = true
+bus = &"Ambience"
+
+[node name="Music" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("11_mer2d")
+volume_db = -7.0
+autoplay = true
+bus = &"Music"
+
+[node name="TreasureSpawner" type="Node3D" parent="."]
+script = ExtResource("11_4te7b")
+treasure_prefab = ExtResource("12_76567")
+
+[node name="Marker3D" type="Marker3D" parent="TreasureSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.450144, 0.906421, -1.15839)
+
+[node name="Marker3D2" type="Marker3D" parent="TreasureSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0318, 0.906421, 0.0886648)
+
+[node name="Marker3D3" type="Marker3D" parent="TreasureSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2246, 0.45321, 3.4395)
+
+[node name="Marker3D4" type="Marker3D" parent="TreasureSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0673817, 0.241351, 3.75198)
+
+[node name="Marker3D5" type="Marker3D" parent="TreasureSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.12309, 0.241351, 1.63918)
+
+[node name="Marker3D6" type="Marker3D" parent="TreasureSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.51867, 1.54556, -0.490123)
+
+[node name="Marker3D7" type="Marker3D" parent="TreasureSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79778, 0.189213, -3.29292)
+
+[node name="Marker3D8" type="Marker3D" parent="TreasureSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.02158, 0.77278, -4.5394)
+
+[node name="Marker3D9" type="Marker3D" parent="TreasureSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7154, 1.54556, -3.83958)
+
+[node name="Marker3D10" type="Marker3D" parent="TreasureSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55747, 0.77278, -8.21883)
+
+[node name="Marker3D11" type="Marker3D" parent="TreasureSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8137, 0.189213, -8.21883)
+
+[node name="Marker3D12" type="Marker3D" parent="TreasureSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8192, 0.189213, -5.64604)
+
+[node name="Marker3D13" type="Marker3D" parent="TreasureSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.36711, 0.591935, -2.53344)
+
+[node name="Marker3D14" type="Marker3D" parent="TreasureSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.637, 0.60617, 0.0442391)

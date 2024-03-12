@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyrjgteqxcd6x"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_30fih"]
+[ext_resource type="PackedScene" uid="uid://uq5t7q1djwmk" path="res://player/barbarian_model.tscn" id="1_vxj1b"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0dj00"]
+radius = 0.181213
+height = 0.800611
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("model")]
+script = ExtResource("1_30fih")
+SPEED = 2.0
+model = NodePath("Barbarian")
+
+[node name="Barbarian" parent="." instance=ExtResource("1_vxj1b")]
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.393052, 0)
+shape = SubResource("CapsuleShape3D_0dj00")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+current = true

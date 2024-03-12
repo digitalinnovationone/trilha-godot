@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bclagl4dn8dwm"
+path="res://.godot/imported/Ossuary 3 - Words.mp3-4767fb8798bf036a8f60aaf0e17af257.mp3str"
+
+[deps]
+
+source_file="res://audio/music/Ossuary 3 - Words.mp3"
+dest_files=["res://.godot/imported/Ossuary 3 - Words.mp3-4767fb8798bf036a8f60aaf0e17af257.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

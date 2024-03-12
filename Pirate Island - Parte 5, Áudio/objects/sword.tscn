@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3 uid="uid://3befrjsoqp0g"]
+
+[ext_resource type="PackedScene" uid="uid://dl4jqxu6rmbe7" path="res://addons/Kenney's Pirate Kit/sword_scimitar.obj" id="1_xw6nc"]
+[ext_resource type="Texture2D" uid="uid://q2y7jk3jayur" path="res://addons/Kenney's Particles/star_08.png" id="2_3wutl"]
+[ext_resource type="AudioStream" uid="uid://b1twflg0sswok" path="res://audio/sfx/shimmer.wav" id="3_tigck"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mklqk"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_3wutl")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_k3mc4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.14048, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7jdtc"]
+curve = SubResource("Curve_k3mc4")
+
+[sub_resource type="Curve" id="Curve_8os0h"]
+max_value = 10.0
+_data = [Vector2(0, 10), 0.0, 0.0, 0, 0, Vector2(1, 0.446359), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_irdd4"]
+curve = SubResource("Curve_8os0h")
+
+[sub_resource type="Curve" id="Curve_843b7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.295349, 0.331573), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_dnrr3"]
+curve = SubResource("Curve_843b7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qonor"]
+emission_shape_offset = Vector3(0, 0.2, 0)
+emission_shape = 3
+emission_box_extents = Vector3(0.15, 0.4, 0.15)
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0, 0)
+linear_accel_max = 0.5
+radial_accel_max = 0.5
+tangential_accel_min = 0.5
+tangential_accel_max = 1.0
+scale_curve = SubResource("CurveTexture_dnrr3")
+color = Color(1, 1, 0.458824, 1)
+alpha_curve = SubResource("CurveTexture_7jdtc")
+emission_curve = SubResource("CurveTexture_irdd4")
+
+[sub_resource type="QuadMesh" id="QuadMesh_reokk"]
+
+[node name="Sword" type="Node3D"]
+
+[node name="sword_scimitar" parent="." instance=ExtResource("1_xw6nc")]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_mklqk")
+amount = 5
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_qonor")
+draw_pass_1 = SubResource("QuadMesh_reokk")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.220844, 0)
+light_color = Color(0.960784, 1, 0.388235, 1)
+light_energy = 1.25
+omni_range = 7.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_tigck")
+volume_db = -16.0
+autoplay = true
+max_distance = 7.0
+bus = &"SFX"
