@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bph3ow7cwydbg"]
+
+[ext_resource type="PackedScene" uid="uid://crtwobfyxjt2" path="res://prototype/prototype_world.tscn" id="2_e2iwa"]
+[ext_resource type="PackedScene" uid="uid://c6nfo5ipbfkic" path="res://player/player.tscn" id="9_euivh"]
+
+[node name="Game" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("9_euivh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -14)
+speed = 6.0
+acceleration = 200.0
+camera_sens = 2.5
+
+[node name="PrototypeWorld" parent="." instance=ExtResource("2_e2iwa")]
