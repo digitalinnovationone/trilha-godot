@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdkk5ihp214rp"]
+
+[ext_resource type="Script" path="res://wands/items/wand_item.gd" id="1_35fmi"]
+[ext_resource type="PackedScene" uid="uid://cifbynr01xfsx" path="res://addons/KayKit Adventurers/Assets/wand.gltf" id="1_wghol"]
+[ext_resource type="Resource" uid="uid://b6jhisy0bc08x" path="res://wands/types/wooden_wand.tres" id="2_3x71k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0sari"]
+size = Vector3(0.143555, 0.141602, 1)
+
+[node name="WandItemWood" type="Node3D"]
+script = ExtResource("1_35fmi")
+wand_type = ExtResource("2_3x71k")
+
+[node name="Mesh" parent="." instance=ExtResource("1_wghol")]
+transform = Transform3D(1, 0, 0, 0, -0.0417884, 0.999126, 0, -0.999126, -0.0417884, 0, 0.060304, 0.205915)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0936677, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_0sari")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.255399, 0)
+light_energy = 0.3
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 1.0
+omni_attenuation = 0.138696

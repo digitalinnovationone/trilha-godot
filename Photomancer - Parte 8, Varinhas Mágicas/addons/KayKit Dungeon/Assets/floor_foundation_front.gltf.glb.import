@@ -1,0 +1,40 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bggyee04pf8at"
+path="res://.godot/imported/floor_foundation_front.gltf.glb-79c1a0d315989a85c5c293ad6b946337.scn"
+
+[deps]
+
+source_file="res://addons/KayKit Dungeon/Assets/floor_foundation_front.gltf.glb"
+dest_files=["res://.godot/imported/floor_foundation_front.gltf.glb-79c1a0d315989a85c5c293ad6b946337.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:floor_foundation_front": {
+"generate/physics": true
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

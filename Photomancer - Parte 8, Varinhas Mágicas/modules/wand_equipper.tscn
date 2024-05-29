@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdhk5xmxw0nte"]
+
+[ext_resource type="Script" path="res://modules/wand_equipper.gd" id="1_5qq14"]
+
+[node name="WandEquipperModule" type="Node"]
+script = ExtResource("1_5qq14")

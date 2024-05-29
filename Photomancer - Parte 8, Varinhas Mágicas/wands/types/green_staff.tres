@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WandType" load_steps=4 format=3 uid="uid://6pxpgd4c8sqf"]
+
+[ext_resource type="PackedScene" uid="uid://bpp2wsrj55csf" path="res://magic/green_magic.tscn" id="1_rnemp"]
+[ext_resource type="Script" path="res://wands/types/wand_type.gd" id="2_alsvc"]
+[ext_resource type="PackedScene" uid="uid://coh86rbi62bgp" path="res://wands/models/green_staff.tscn" id="3_53xhm"]
+
+[resource]
+script = ExtResource("2_alsvc")
+wand_model = ExtResource("3_53xhm")
+projectile = ExtResource("1_rnemp")
+shooting_speed = 20.0
+damage = 20
+fire_rate = 90.0

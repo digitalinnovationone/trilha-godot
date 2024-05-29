@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8vkjcl2q64hp"]
+
+[ext_resource type="PackedScene" uid="uid://cifbynr01xfsx" path="res://addons/KayKit Adventurers/Assets/wand.gltf" id="1_yhdjh"]
+
+[node name="WoodenWand" instance=ExtResource("1_yhdjh")]
+transform = Transform3D(1.36916, 0, 0, 0, 1.36916, 0, 0, 0, 1.36916, 0, 0, 0)
