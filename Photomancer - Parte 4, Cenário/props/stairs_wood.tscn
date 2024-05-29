@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://2gwlyumpfbrp"]
+
+[ext_resource type="PackedScene" uid="uid://bjiq65ln2m2pf" path="res://addons/KayKit Dungeon/Assets/stairs_wood.gltf.glb" id="1_8h4f2"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rkxr3"]
+data = PackedVector3Array(-3, 2, 1.5, 3, -2, 1.5, -3, -2, 1.5, -3, 2, -1.5, -3, -2, -1.5, 3, -2, -1.5, -3, 2, 1.5, -3, 2, -1.5, 3, -2, 1.5, -3, 2, -1.5, 3, -2, -1.5, 3, -2, 1.5, -3, 2, -1.5, -3, 2, 1.5, -3, -2, -1.5, -3, 2, 1.5, -3, -2, 1.5, -3, -2, -1.5, -3, -2, 1.5, 3, -2, 1.5, -3, -2, -1.5, 3, -2, 1.5, 3, -2, -1.5, -3, -2, -1.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wenu6"]
+data = PackedVector3Array(-1.5, 2, 0.5, 1.5, 2, 0.5, -1.5, -2, 0.5, 1.5, 2, 0.5, 1.5, -2, 0.5, -1.5, -2, 0.5, 1.5, 2, -0.5, -1.5, 2, -0.5, 1.5, -2, -0.5, -1.5, 2, -0.5, -1.5, -2, -0.5, 1.5, -2, -0.5, 1.5, 2, 0.5, 1.5, 2, -0.5, 1.5, -2, 0.5, 1.5, 2, -0.5, 1.5, -2, -0.5, 1.5, -2, 0.5, -1.5, 2, -0.5, -1.5, 2, 0.5, -1.5, -2, -0.5, -1.5, 2, 0.5, -1.5, -2, 0.5, -1.5, -2, -0.5, 1.5, 2, 0.5, -1.5, 2, 0.5, 1.5, 2, -0.5, -1.5, 2, 0.5, -1.5, 2, -0.5, 1.5, 2, -0.5, -1.5, -2, 0.5, 1.5, -2, 0.5, -1.5, -2, -0.5, 1.5, -2, 0.5, 1.5, -2, -0.5, -1.5, -2, -0.5)
+
+[node name="stairs_wood" instance=ExtResource("1_8h4f2")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 2, 4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_rkxr3")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.5, 0, 1.5299e-07)
+shape = SubResource("ConcavePolygonShape3D_wenu6")
