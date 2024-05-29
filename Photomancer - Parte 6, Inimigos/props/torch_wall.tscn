@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6wuoqve4byv5"]
+
+[ext_resource type="PackedScene" uid="uid://dq10xtmwpuw8f" path="res://addons/KayKit Dungeon/Assets/torch_mounted.gltf.glb" id="1_54tt4"]
+[ext_resource type="Script" path="res://props/dynamic_torch.gd" id="1_a3ldq"]
+
+[node name="TorchWall" type="Node3D" node_paths=PackedStringArray("light")]
+script = ExtResource("1_a3ldq")
+light = NodePath("Light")
+
+[node name="torch_mounted_gltf2" parent="." instance=ExtResource("1_54tt4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.246142)
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8929, 0.66381)
+light_indirect_energy = 2.0
+light_volumetric_fog_energy = 2.0
+shadow_enabled = true
+omni_attenuation = 0.5
+omni_shadow_mode = 0

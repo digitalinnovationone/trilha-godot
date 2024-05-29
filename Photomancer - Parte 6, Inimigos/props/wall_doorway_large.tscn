@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dac3ykvxbfcli"]
+
+[ext_resource type="PackedScene" uid="uid://b22j3gshv0ip3" path="res://props/wall_doorway_scaffold.tscn" id="1_q8pi5"]
+
+[node name="wall_doorway_scaffold" instance=ExtResource("1_q8pi5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="AnimationPlayer" parent="Door" index="1"]
+speed_scale = 0.5
+
+[node name="AudioStreamPlayer3D" parent="." index="2"]
+pitch_scale = 0.5
