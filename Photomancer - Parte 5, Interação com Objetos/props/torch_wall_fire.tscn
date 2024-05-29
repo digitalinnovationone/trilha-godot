@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtv5urfbc3yhb"]
+
+[ext_resource type="PackedScene" uid="uid://c6wuoqve4byv5" path="res://props/torch_wall.tscn" id="1_8xfr8"]
+
+[node name="TorchWall Fire" instance=ExtResource("1_8xfr8")]
+range = 13.0
+color = Color(1, 0.666667, 0, 1)
+energy = 1.6
+
+[node name="Light" parent="." index="1"]
+light_color = Color(1, 0.666667, 0, 1)
+light_energy = 1.6
+omni_range = 13.0
