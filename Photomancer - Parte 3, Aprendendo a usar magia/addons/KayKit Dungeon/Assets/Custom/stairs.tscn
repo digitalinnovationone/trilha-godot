@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://do6wcecyjexvg"]
+
+[ext_resource type="PackedScene" uid="uid://dom3sxkyhhaio" path="res://addons/KayKit Dungeon/Assets/stairs.gltf.glb" id="1_0sn78"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eglir"]
+size = Vector3(3.5, 0.286133, 5.65387)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cvp5n"]
+size = Vector3(3.5, 0.933594, 0.415894)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_417or"]
+size = Vector3(0.4, 4.9, 4)
+
+[node name="stairs_gltf" instance=ExtResource("1_0sn78")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 1.88772, 2.31351)
+shape = SubResource("BoxShape3D_eglir")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.54155, 0.207947)
+shape = SubResource("BoxShape3D_cvp5n")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.45, 2)
+shape = SubResource("BoxShape3D_417or")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.45, 2)
+shape = SubResource("BoxShape3D_417or")
