@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://gbqdsf1nli44"]
+
+[ext_resource type="Script" path="res://modules/movement_animation.gd" id="1_ufrwg"]
+
+[node name="MovementAnimationModule" type="Node"]
+script = ExtResource("1_ufrwg")

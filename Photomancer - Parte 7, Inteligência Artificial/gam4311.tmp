@@ -1,0 +1,406 @@
+[gd_scene load_steps=13 format=3 uid="uid://bph3ow7cwydbg"]
+
+[ext_resource type="PackedScene" uid="uid://b5mmk5iapp3qn" path="res://world/world.tscn" id="2_6eith"]
+[ext_resource type="PackedScene" uid="uid://dtv5urfbc3yhb" path="res://props/torch_wall_fire.tscn" id="4_n07gk"]
+[ext_resource type="PackedScene" uid="uid://chwa57ayb8e8u" path="res://props/torch_ceiling.tscn" id="5_da1xp"]
+[ext_resource type="PackedScene" uid="uid://d36y5t8jxm3td" path="res://props/torch_wall_blue.tscn" id="5_exlnu"]
+[ext_resource type="Script" path="res://interaction/interaction_system.gd" id="6_hq6gn"]
+[ext_resource type="Texture2D" uid="uid://dmmeyl2adjaq4" path="res://addons/Kenney Crosshairs/crosshair007.png" id="7_hmgad"]
+[ext_resource type="PackedScene" uid="uid://cxp2fnfgmfxb8" path="res://enemies/skeleton_minion.tscn" id="8_au6jg"]
+[ext_resource type="Script" path="res://banana.gd" id="9_3wvhi"]
+[ext_resource type="PackedScene" uid="uid://c6nfo5ipbfkic" path="res://player/player.tscn" id="9_euivh"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_itp28"]
+density = 0.02
+
+[sub_resource type="FogMaterial" id="FogMaterial_ovb2t"]
+density = 0.25
+albedo = Color(1, 0, 0.231373, 1)
+emission = Color(0.341176, 0.12549, 0.184314, 1)
+edge_fade = 0.5
+
+[sub_resource type="Environment" id="Environment_5bkg3"]
+background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 0.0
+tonemap_white = 1.1
+ssao_enabled = true
+ssao_radius = 4.0
+ssao_intensity = 3.96
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.0
+glow_blend_mode = 0
+fog_enabled = true
+fog_light_color = Color(0.760784, 0.247059, 1, 1)
+fog_light_energy = 0.2
+fog_density = 0.005
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.631373, 0.435294, 0.658824, 1)
+adjustment_enabled = true
+adjustment_contrast = 1.2
+adjustment_saturation = 1.2
+
+[node name="Game" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("9_euivh")]
+transform = Transform3D(-0.992079, -0.00264011, -0.12559, 0, 0.999779, -0.0210171, 0.125617, -0.0208506, -0.99186, 2.52263, 0.0614167, -40.1615)
+speed = 6.0
+acceleration = 200.0
+camera_sens = 2.5
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80729, 0)
+light_color = Color(1, 1, 0.494118, 1)
+light_energy = 0.2
+omni_range = 12.0
+omni_attenuation = 0.277392
+omni_shadow_mode = 0
+
+[node name="World" parent="." instance=ExtResource("2_6eith")]
+
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, -0.329839, 0.944037, 0, -0.944037, -0.329839, 0, 15.109, 0)
+light_energy = 0.0
+
+[node name="TorchWall Fire" parent="Lighting" instance=ExtResource("4_n07gk")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, -34)
+
+[node name="TorchWall Fire2" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("4_n07gk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -24)
+light = NodePath("../TorchWall Fire/Light")
+
+[node name="TorchWall Fire3" parent="Lighting" instance=ExtResource("4_n07gk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -16)
+
+[node name="TorchWall Fire4" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("4_n07gk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -16)
+light = NodePath("../TorchWall Fire3/Light")
+
+[node name="TorchWall Fire5" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("4_n07gk")]
+transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 16, 0, -10)
+light = NodePath("../TorchWall Fire3/Light")
+
+[node name="TorchWall Fire6" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("4_n07gk")]
+transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 16, 0, -6)
+light = NodePath("../TorchWall Fire3/Light")
+
+[node name="TorchWall Fire13" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("4_n07gk")]
+transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 14, 0, 14)
+light = NodePath("../TorchWall Fire3/Light")
+
+[node name="TorchWall Fire14" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("4_n07gk")]
+transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 14, 0, 2)
+light = NodePath("../TorchWall Fire3/Light")
+
+[node name="TorchWall Fire15" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("4_n07gk")]
+transform = Transform3D(-1.17225e-07, 0, 1, 0, 1, 0, -1, 0, -1.17225e-07, -10, 0, 14)
+light = NodePath("../TorchWall Fire3/Light")
+
+[node name="TorchWall Fire16" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("4_n07gk")]
+transform = Transform3D(-1.17225e-07, 0, 1, 0, 1, 0, -1, 0, -1.17225e-07, -10, 0, 2)
+light = NodePath("../TorchWall Fire3/Light")
+
+[node name="TorchWall Fire7" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("4_n07gk")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -12, 0, -6)
+light = NodePath("../TorchWall Fire3/Light")
+
+[node name="TorchWall Fire9" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("4_n07gk")]
+transform = Transform3D(1, 0, 7.54979e-08, 0, 1, 0, -7.54979e-08, 0, 1, -20, 0, -16)
+light = NodePath("../TorchWall Fire3/Light")
+
+[node name="TorchWall Fire10" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("4_n07gk")]
+transform = Transform3D(3.17865e-08, 0, -1, 0, 1, 0, 1, 0, 3.17865e-08, -14, 0, 0)
+light = NodePath("../TorchWall Fire3/Light")
+
+[node name="TorchWall Fire11" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("4_n07gk")]
+transform = Transform3D(-1, 0, 1.19249e-08, 0, 1, 0, -1.19249e-08, 0, -1, -18, 0, 16)
+light = NodePath("../TorchWall Fire3/Light")
+
+[node name="TorchWall Fire12" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("4_n07gk")]
+transform = Transform3D(-1, 0, 1.19249e-08, 0, 1, 0, -1.19249e-08, 0, -1, -22, 0, 16)
+light = NodePath("../TorchWall Fire3/Light")
+
+[node name="TorchWall Fire8" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("4_n07gk")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -12, 0, -10)
+light = NodePath("../TorchWall Fire3/Light")
+
+[node name="TorchLamp" parent="Lighting" instance=ExtResource("5_da1xp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 8, -8)
+range = 15.0
+color = Color(1, 0.827451, 0.639216, 1)
+energy = 2.0
+
+[node name="TorchLamp2" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("5_da1xp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 8, -8)
+range = 15.0
+color = Color(1, 0.827451, 0.639216, 1)
+energy = 2.0
+light = NodePath("../TorchLamp/Light")
+
+[node name="TorchLamp3" parent="Lighting" instance=ExtResource("5_da1xp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 8, 14)
+range = 8.0
+color = Color(1, 0.6, 0, 1)
+energy = 1.3
+
+[node name="TorchWall Fire17" parent="Lighting" instance=ExtResource("4_n07gk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10, 4, 84)
+
+[node name="TorchWall Fire19" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("4_n07gk")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 6, 0, 68)
+light = NodePath("../TorchWall Fire17/Light")
+
+[node name="TorchWall Fire20" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("4_n07gk")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -2, 0, 68)
+light = NodePath("../TorchWall Fire17/Light")
+
+[node name="TorchWall Fire21" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("4_n07gk")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 18, 0, 72)
+light = NodePath("../TorchWall Fire17/Light")
+
+[node name="TorchWall Fire18" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("4_n07gk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6, 4, 84)
+light = NodePath("../TorchWall Fire17/Light")
+
+[node name="LightCorridor" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.671872, 0.188606, -0.716251, 0, 0.967035, 0.254644, 0.740667, -0.171088, 0.649724, -6.05359, 3.36221, 41.3626)
+light_color = Color(0.34902, 0.427451, 1, 1)
+light_energy = 30.0
+light_indirect_energy = 8.0
+light_volumetric_fog_energy = 8.0
+light_specular = 6.0
+shadow_enabled = true
+spot_range = 34.0733
+spot_angle = 18.1262
+
+[node name="FogThrone" type="FogVolume" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4, 74)
+size = Vector3(40, 6, 22)
+material = SubResource("FogMaterial_itp28")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(-0.999836, 0.00190852, 0.0180204, 0, 0.994438, -0.10532, -0.0181212, -0.105302, -0.994275, 1.85403, 6.30237, 75.0829)
+light_color = Color(1, 0.733333, 0, 1)
+light_energy = 2.25
+light_indirect_energy = 2.727
+light_volumetric_fog_energy = 2.438
+omni_range = 63.039
+omni_shadow_mode = 0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(-0.999892, -0.00373528, 0.0142336, 0, 0.967248, 0.253832, -0.0147156, 0.253804, -0.967144, 1.69127, 6.54816, 68.89)
+light_color = Color(1, 0.66, 0.15, 1)
+light_energy = 12.25
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 3.105
+light_specular = 9.25
+shadow_enabled = true
+spot_range = 26.9333
+spot_angle = 25.1275
+
+[node name="SpotLight3D10" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.0210793, 0.742447, -0.669573, 0, 0.669722, 0.742612, 0.999778, -0.0156537, 0.0141172, 62.5714, 6.6996, 44.1294)
+light_color = Color(1, 0.66, 0.15, 1)
+light_energy = 12.188
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 8.58
+light_specular = 8.0
+shadow_enabled = true
+spot_range = 26.9333
+spot_angle = 47.6798
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(-0.841416, 0.208577, -0.498512, 0, 0.922509, 0.385976, 0.540388, 0.324767, -0.776214, 10.082, 6.15715, 70.3762)
+light_color = Color(1, 0.705882, 0.32549, 1)
+light_energy = 15.625
+light_specular = 6.688
+shadow_enabled = true
+spot_range = 26.9333
+spot_angle = 41.4208
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(-0.795594, -0.174136, 0.580264, 0, 0.957801, 0.287434, -0.60583, 0.22868, -0.76202, -4.42972, 5.93493, 70.1706)
+light_color = Color(1, 0.705882, 0.32549, 1)
+light_energy = 15.625
+light_specular = 6.688
+shadow_enabled = true
+spot_range = 26.9333
+spot_angle = 41.4208
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.345794, 0.243327, -0.906211, 0.0457274, 0.960273, 0.275292, 0.937196, -0.136633, 0.32093, -40.8786, -5.08507, 63.2088)
+light_color = Color(3, 1, 1.5, 1)
+light_energy = 3.317
+light_volumetric_fog_energy = 32.0
+light_specular = 2.0
+shadow_enabled = true
+spot_range = 26.5138
+spot_angle = 20.8828
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.734091, 0.178167, -0.655261, 0.0457274, 0.949805, 0.309483, 0.67751, -0.257152, 0.689096, -45.3531, -5.39423, 55.6866)
+light_color = Color(0.596078, 0.588235, 1, 1)
+light_energy = 10.065
+light_volumetric_fog_energy = 30.0
+light_specular = 10.75
+shadow_enabled = true
+spot_range = 26.5138
+spot_angle = 43.2211
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(-0.364846, 0.304284, -0.879942, 0.0457274, 0.949805, 0.309483, 0.929944, 0.0726761, -0.360447, -45.3531, -5.39423, 39.912)
+light_color = Color(0, 1, 0.733333, 1)
+light_energy = 16.0
+light_volumetric_fog_energy = 30.0
+light_specular = 5.75
+shadow_enabled = true
+spot_range = 41.6877
+spot_angle = 38.6047
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.616313, 0.189761, -0.764297, 0.0457274, 0.960273, 0.275292, 0.786173, -0.204615, 0.583151, -40.8786, -5.08507, 77.7653)
+light_color = Color(3, 1, 1.5, 1)
+light_energy = 3.317
+light_volumetric_fog_energy = 32.0
+light_specular = 2.0
+shadow_enabled = true
+spot_range = 26.5138
+spot_angle = 20.8828
+
+[node name="FogCells" type="FogVolume" parent="Lighting"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.92021, -4.59022, 43.9996)
+size = Vector3(26, 11.2759, 28.0203)
+material = SubResource("FogMaterial_ovb2t")
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.999829, 0.0184797, -1.47149e-05, 0, 0.000796274, 1, 0.0184797, -0.999829, 0.000796138, 5.2562, -10.5322, 5.61748)
+light_color = Color(0, 0.443137, 0.509804, 1)
+light_energy = 0.313
+light_indirect_energy = 0.1
+light_volumetric_fog_energy = 0.0
+light_specular = 7.751
+spot_range = 23.5093
+spot_attenuation = 1e-05
+spot_angle = 85.3062
+spot_angle_attenuation = 0.16384
+
+[node name="SpotLight3D9" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(0.999829, 0.0184797, -1.47149e-05, 0, 0.000796274, 1, 0.0184797, -0.999829, 0.000796138, 33.504, 0.188157, 6.59024)
+light_color = Color(0, 0.443137, 0.509804, 1)
+light_energy = 0.313
+light_indirect_energy = 0.1
+light_volumetric_fog_energy = 0.0
+light_specular = 7.751
+spot_range = 23.5093
+spot_attenuation = 1e-05
+spot_angle = 85.3062
+spot_angle_attenuation = 0.16384
+
+[node name="FakeRedMoon" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(-0.998239, 0.0558267, -0.0200651, -0.0172619, 0.050249, 0.998588, 0.0567561, 0.997175, -0.0491968, 39.3506, 9.41803, 45.9698)
+light_color = Color(0.419608, 0.2, 0.152941, 1)
+light_energy = 1.33
+light_volumetric_fog_energy = 8.0
+light_specular = 16.0
+shadow_enabled = true
+spot_range = 50.0
+spot_attenuation = 0.001
+spot_angle = 75.0
+spot_angle_attenuation = 0.5
+
+[node name="FakeGoldMoon" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(-0.900347, 0.0558267, -0.431577, -0.42917, 0.050249, 0.901825, 0.0720322, 0.997175, -0.0212824, 65.8357, 7.1288, 44.6024)
+light_color = Color(1, 0.85098, 0, 1)
+light_energy = 2.142
+light_indirect_energy = 8.05
+light_volumetric_fog_energy = 0.0
+light_specular = 16.0
+shadow_enabled = true
+spot_range = 18.95
+spot_attenuation = 0.001
+spot_angle = 70.0
+
+[node name="TorchWall Blue" parent="Lighting" instance=ExtResource("5_exlnu")]
+transform = Transform3D(0.35998, 0, -0.93296, 0, 1, 0, 0.93296, 0, 0.35998, 43.6519, -11.925, -6.72189)
+
+[node name="TorchWall Blue2" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("5_exlnu")]
+transform = Transform3D(0.31333, 0, -0.949645, 0, 1, 0, 0.949645, 0, 0.31333, 47.1743, -11.925, 18.0418)
+light = NodePath("../TorchWall Blue/Light")
+
+[node name="TorchWall Blue3" parent="Lighting" node_paths=PackedStringArray("light") instance=ExtResource("5_exlnu")]
+transform = Transform3D(0.988544, -0.0203639, -0.149553, 1.86265e-09, 0.990856, -0.13492, 0.150933, 0.133374, 0.979505, 20.1487, -12.5904, -10.0302)
+light = NodePath("../TorchWall Blue/Light")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5bkg3")
+
+[node name="InteractionSystem" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("6_hq6gn")
+player = NodePath("../Player")
+
+[node name="Crosshair" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="Crosshair"]
+modulate = Color(1, 1, 1, 0.54902)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("7_hmgad")
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="Skeleton Minion" parent="Enemies" instance=ExtResource("8_au6jg")]
+transform = Transform3D(-0.84233, 0, 0.538962, 0, 1, 0, -0.538962, 0, -0.84233, -3.42486, 0, -6.40833)
+
+[node name="Skeleton Minion9" parent="Enemies" instance=ExtResource("8_au6jg")]
+transform = Transform3D(-0.84233, 0, 0.538962, 0, 1, 0, -0.538962, 0, -0.84233, -8.02827, -4.76837e-07, 2.94868)
+
+[node name="Skeleton Minion6" parent="Enemies" instance=ExtResource("8_au6jg")]
+transform = Transform3D(-0.940395, 0, -0.340084, 0, 1, 0, 0.340084, 0, -0.940395, 5.67934, 0, -2.88431)
+
+[node name="Skeleton Minion7" parent="Enemies" instance=ExtResource("8_au6jg")]
+transform = Transform3D(-0.395946, 0, -0.918274, 0, 1, 0, 0.918274, 0, -0.395946, 10.9636, 0, -10.2747)
+
+[node name="Skeleton Minion8" parent="Enemies" instance=ExtResource("8_au6jg")]
+transform = Transform3D(-0.995613, 0, -0.0935695, 0, 1, 0, 0.0935695, 0, -0.995613, 11.8604, 0, 5.61025)
+
+[node name="Skeleton Minion3" parent="Enemies" instance=ExtResource("8_au6jg")]
+transform = Transform3D(-0.612645, 0, 0.790358, 0, 1, 0, -0.790358, 0, -0.612645, -23.4599, 2.38419e-07, 6.06587)
+
+[node name="Skeleton Minion2" parent="Enemies" instance=ExtResource("8_au6jg")]
+transform = Transform3D(-0.999606, 0, -0.0280612, 0, 1, 0, 0.0280612, 0, -0.999606, -8.58825, 0, 18.9481)
+
+[node name="Skeleton Minion4" parent="Enemies" instance=ExtResource("8_au6jg")]
+transform = Transform3D(-0.999606, 0, -0.0280612, 0, 1, 0, 0.0280612, 0, -0.999606, 2.10993, 0, 59.9401)
+
+[node name="Skeleton Minion5" parent="Enemies" instance=ExtResource("8_au6jg")]
+transform = Transform3D(0.295253, -0.107786, -0.94932, 0.0243786, 0.994142, -0.105293, 0.955108, 0.0079451, 0.296151, 11.2417, -3.88857, 34.0622)
+
+[node name="Banana" type="Node" parent="."]
+process_mode = 4
+script = ExtResource("9_3wvhi")
