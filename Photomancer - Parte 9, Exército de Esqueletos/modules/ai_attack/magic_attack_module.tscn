@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuag2mksww0bk"]
+
+[ext_resource type="Script" path="res://modules/ai_attack/magic_attack_module.gd" id="1_teymu"]
+
+[node name="MagicAttackModule" type="Node"]
+script = ExtResource("1_teymu")

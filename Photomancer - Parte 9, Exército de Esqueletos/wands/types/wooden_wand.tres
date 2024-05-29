@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WandType" load_steps=4 format=3 uid="uid://b6jhisy0bc08x"]
+
+[ext_resource type="PackedScene" uid="uid://cwdxd0qe3of0b" path="res://magic/simple_magic.tscn" id="1_8oj70"]
+[ext_resource type="Script" path="res://wands/types/wand_type.gd" id="1_hhaky"]
+[ext_resource type="PackedScene" uid="uid://b8vkjcl2q64hp" path="res://wands/models/wooden_wand.tscn" id="3_jkjiy"]
+
+[resource]
+script = ExtResource("1_hhaky")
+wand_model = ExtResource("3_jkjiy")
+projectile = ExtResource("1_8oj70")
+shooting_speed = 10.0
+damage = 5
+fire_rate = 240.0

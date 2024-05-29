@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://benvx7aaps6oh"]
+
+[ext_resource type="Script" path="res://modules/death_animation.gd" id="1_lqh36"]
+
+[node name="DeathAnimationModule" type="Node"]
+script = ExtResource("1_lqh36")

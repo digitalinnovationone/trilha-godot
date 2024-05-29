@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://c3ypitm0ss70o"
+path.bptc="res://.godot/imported/Skeleton_Mage_skeleton_texture.png-f5a7cf9b60a7945acba865a763904ca6.bptc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={}
+
+[deps]
+
+source_file="res://addons/KayKit Skeletons/characters/Skeleton_Mage_skeleton_texture.png"
+dest_files=["res://.godot/imported/Skeleton_Mage_skeleton_texture.png-f5a7cf9b60a7945acba865a763904ca6.bptc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=true
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
