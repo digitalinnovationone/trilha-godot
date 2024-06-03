@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WandType" load_steps=4 format=3 uid="uid://qh6k3rgyrpku"]
+
+[ext_resource type="PackedScene" uid="uid://bf7bey85bu60m" path="res://magic/fire_magic.tscn" id="1_5w0kk"]
+[ext_resource type="Script" path="res://wands/types/wand_type.gd" id="2_a28l8"]
+[ext_resource type="PackedScene" uid="uid://cahxpfndxtq5p" path="res://wands/models/skeleton_staff.tscn" id="3_wqmm2"]
+
+[resource]
+script = ExtResource("2_a28l8")
+wand_model = ExtResource("3_wqmm2")
+projectile = ExtResource("1_5w0kk")
+shooting_speed = 18.0
+damage = 80
+fire_rate = 30.0
+target_offset_y = 2.0

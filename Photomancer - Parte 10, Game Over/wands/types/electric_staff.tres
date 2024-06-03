@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WandType" load_steps=4 format=3 uid="uid://ohcu6f3506g3"]
+
+[ext_resource type="PackedScene" uid="uid://dd18af44okc8p" path="res://magic/electric_magic.tscn" id="1_dccn1"]
+[ext_resource type="Script" path="res://wands/types/wand_type.gd" id="2_jlmqo"]
+[ext_resource type="PackedScene" uid="uid://d13c48vi3kpbu" path="res://wands/models/blue_staff.tscn" id="3_oduxf"]
+
+[resource]
+script = ExtResource("2_jlmqo")
+wand_model = ExtResource("3_oduxf")
+projectile = ExtResource("1_dccn1")
+shooting_speed = 25.0
+damage = 15
+fire_rate = 180.0

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://le1anst6nhb7"]
+
+[ext_resource type="Script" path="res://wands/items/wand_item.gd" id="1_i5xhc"]
+[ext_resource type="Resource" uid="uid://6pxpgd4c8sqf" path="res://wands/types/green_staff.tres" id="2_6mgx5"]
+[ext_resource type="PackedScene" uid="uid://coh86rbi62bgp" path="res://wands/models/green_staff.tscn" id="3_wgbwv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0sari"]
+size = Vector3(0.537109, 0.141602, 2.14551)
+
+[node name="WandItemGreen" type="Node3D"]
+script = ExtResource("1_i5xhc")
+wand_type = ExtResource("2_6mgx5")
+
+[node name="staff3" parent="." instance=ExtResource("3_wgbwv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.072, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0936677, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.215332)
+shape = SubResource("BoxShape3D_0sari")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.255399, 0)
+light_color = Color(0, 0.780392, 0, 1)
+light_energy = 0.571
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+omni_range = 1.0
+omni_attenuation = 0.138696
