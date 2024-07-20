@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyxbrkgmsdk4n"]
+
+[ext_resource type="Script" path="res://modules/ai_movement/follow_movement_module.gd" id="1_guetj"]
+
+[node name="FollowMovementModule" type="Node"]
+script = ExtResource("1_guetj")

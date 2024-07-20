@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://coh86rbi62bgp"]
+
+[ext_resource type="PackedScene" uid="uid://cbid5x0g80s5n" path="res://addons/KayKit Adventurers/Assets/staff.gltf" id="1_hpnsa"]
+
+[node name="staff2" instance=ExtResource("1_hpnsa")]

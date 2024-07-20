@@ -1,0 +1,92 @@
+[gd_scene load_steps=16 format=3 uid="uid://cahxpfndxtq5p"]
+
+[ext_resource type="PackedScene" uid="uid://cbxpvc0yky1co" path="res://addons/KayKit Skeletons/assets/Skeleton_Staff.gltf" id="1_msdsw"]
+[ext_resource type="Material" uid="uid://b1opc7cv434fo" path="res://enemies/material_eyes.tres" id="2_6etgc"]
+[ext_resource type="Texture2D" uid="uid://blw6a0v01ea0l" path="res://addons/Kenney Particles/flame_06.png" id="3_gum37"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_71k4r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0b35"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_gum37")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_ejn7v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.302605, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fb42f"]
+curve = SubResource("Curve_ejn7v")
+
+[sub_resource type="Curve" id="Curve_od2eg"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pl8ga"]
+curve = SubResource("Curve_od2eg")
+
+[sub_resource type="Curve" id="Curve_8hid7"]
+max_value = 2.0
+_data = [Vector2(0, 1.01398), 0.0, 0.0, 0, 0, Vector2(1, 1.00782), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_r44mn"]
+curve = SubResource("Curve_8hid7")
+
+[sub_resource type="Curve" id="Curve_hft77"]
+_data = [Vector2(0, 0.242), 0.0, 0.0, 0, 0, Vector2(0.258517, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.272813), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_h2efr"]
+curve = SubResource("Curve_hft77")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pleux"]
+emission_shape = 1
+emission_sphere_radius = 0.5
+angle_min = -180.0
+angle_max = 180.0
+angle_curve = SubResource("CurveTexture_pl8ga")
+orbit_velocity_max = 1.0
+gravity = Vector3(0, 1, 0)
+linear_accel_max = 1.0
+scale_min = 0.25
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_h2efr")
+color = Color(1, 0.533333, 0, 1)
+alpha_curve = SubResource("CurveTexture_fb42f")
+emission_curve = SubResource("CurveTexture_r44mn")
+
+[sub_resource type="QuadMesh" id="QuadMesh_fivda"]
+
+[node name="Skeleton_Staff2" instance=ExtResource("1_msdsw")]
+
+[node name="Skeleton_Staff" parent="." index="0"]
+transform = Transform3D(-0.643455, 0, 0.643455, 0, 0.909983, 0, -0.643455, 0, -0.643455, 0, 0, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Skeleton_Staff" index="0"]
+transform = Transform3D(0.0679466, 0, 0, 0, 0.0679464, 0, 0, 0, 0.0679466, -0.335563, 0.901385, 0.0703061)
+material_override = ExtResource("2_6etgc")
+mesh = SubResource("SphereMesh_71k4r")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Skeleton_Staff" index="1"]
+transform = Transform3D(0.0679466, 0, 0, 0, 0.0679464, 0, 0, 0, 0.0679466, -0.335563, 0.901385, -0.0768797)
+material_override = ExtResource("2_6etgc")
+mesh = SubResource("SphereMesh_71k4r")
+skeleton = NodePath("../..")
+
+[node name="GPUParticles3D A" type="GPUParticles3D" parent="Skeleton_Staff" index="2"]
+transform = Transform3D(1.09892, 0, 0, 0, 1.09892, 0, 0, 0, 1.09892, 0, 0.895241, 0)
+material_override = SubResource("StandardMaterial3D_i0b35")
+amount = 10
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_pleux")
+draw_pass_1 = SubResource("QuadMesh_fivda")

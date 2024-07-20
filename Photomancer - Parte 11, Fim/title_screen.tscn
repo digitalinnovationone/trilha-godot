@@ -1,0 +1,168 @@
+[gd_scene load_steps=11 format=3 uid="uid://cpwduqevm7wxi"]
+
+[ext_resource type="Script" path="res://interface/title_screen.gd" id="1_ejnkm"]
+[ext_resource type="PackedScene" uid="uid://bnqraan1uevu3" path="res://wands/items/wand_item_skeleton.tscn" id="1_wxkps"]
+[ext_resource type="AudioStream" uid="uid://burydbvxxbptu" path="res://sounds/music/a_singular_perversion.ogg" id="2_0fewl"]
+[ext_resource type="PackedScene" uid="uid://66tvd4sq0a06" path="res://addons/KayKit Dungeon/Assets/rubble_large.gltf.glb" id="6_6js5n"]
+[ext_resource type="PackedScene" uid="uid://bt31w46441tr1" path="res://addons/KayKit Dungeon/Assets/floor_dirt_large_rocky.gltf.glb" id="7_rek7d"]
+[ext_resource type="Texture2D" uid="uid://b4qpr3ss10ub" path="res://interface/PhotomancerLogo.png" id="8_vvj1h"]
+[ext_resource type="PackedScene" uid="uid://bru1kh6vnv0yv" path="res://enemies/skeleton_warrior.tscn" id="9_ocgds"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tghqd"]
+font_size = 32
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ow3au"]
+dof_blur_far_enabled = true
+dof_blur_near_enabled = true
+dof_blur_amount = 0.28
+
+[sub_resource type="Environment" id="Environment_x3qcv"]
+background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 0.0
+tonemap_white = 11.12
+ssao_enabled = true
+ssao_radius = 4.0
+ssao_intensity = 3.96
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 8.0
+glow_strength = 0.61
+glow_blend_mode = 0
+fog_enabled = true
+fog_light_color = Color(0.760784, 0.247059, 1, 1)
+fog_light_energy = 0.2
+fog_density = 0.005
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0892
+volumetric_fog_albedo = Color(0.631373, 0.435294, 0.658824, 1)
+adjustment_enabled = true
+adjustment_brightness = 0.89
+adjustment_contrast = 1.7
+adjustment_saturation = 1.27
+
+[node name="TitleScreen" type="Node3D"]
+script = ExtResource("1_ejnkm")
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0fewl")
+autoplay = true
+bus = &"Music"
+
+[node name="TitleScreenUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="TextureRect" parent="TitleScreenUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -961.5
+offset_right = 961.5
+offset_bottom = 375.0
+grow_horizontal = 2
+texture = ExtResource("8_vvj1h")
+stretch_mode = 3
+
+[node name="PressAnyButtonLabel" type="Label" parent="TitleScreenUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -189.0
+offset_top = -133.0
+offset_right = 197.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press any button to start"
+label_settings = SubResource("LabelSettings_tghqd")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.990521, 0.0190745, 0.13603, -1.85959e-09, 0.990311, -0.138865, -0.13736, -0.137549, -0.980924, 33.215, 1.59795, 26.2709)
+attributes = SubResource("CameraAttributesPractical_ow3au")
+fov = 28.7
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x3qcv")
+
+[node name="Fake Scene" type="Node3D" parent="."]
+
+[node name="WandItemSkeleton" parent="Fake Scene" instance=ExtResource("1_wxkps")]
+transform = Transform3D(-0.99709, 0.0758322, 0.00782691, 7.53921e-10, 0.102668, -0.994715, -0.0762351, -0.991821, -0.102369, 32.7647, 1.02917, 29.1286)
+
+[node name="Lighting" type="Node3D" parent="Fake Scene"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Fake Scene/Lighting"]
+transform = Transform3D(1, 0, 0, 0, -0.329839, 0.944037, 0, -0.944037, -0.329839, 0, 15.109, 0)
+light_energy = 0.0
+
+[node name="FakeRedMoon" type="SpotLight3D" parent="Fake Scene/Lighting"]
+transform = Transform3D(-0.960925, -0.184596, 0.206269, 0.0238384, 0.687215, 0.726063, -0.275779, 0.702609, -0.655962, 40.1667, 10.8596, 33.2219)
+light_color = Color(0.0297158, 0.503345, 0.413869, 1)
+light_energy = 1.33
+light_volumetric_fog_energy = 8.0
+light_specular = 16.0
+shadow_enabled = true
+spot_range = 50.0
+spot_attenuation = 0.001
+spot_angle = 75.0
+spot_angle_attenuation = 0.5
+
+[node name="FakeRedMoon3" type="SpotLight3D" parent="Fake Scene/Lighting"]
+transform = Transform3D(-0.960925, -0.184596, 0.206269, 0.0238384, 0.687215, 0.726063, -0.275779, 0.702609, -0.655962, 35.3256, 10.8596, 30.2898)
+light_color = Color(0.162998, 0.373837, 0.77169, 1)
+light_energy = 0.2
+light_volumetric_fog_energy = 0.0
+light_specular = 16.0
+shadow_enabled = true
+spot_range = 50.0
+spot_attenuation = 0.001
+spot_angle = 75.0
+spot_angle_attenuation = 0.5
+
+[node name="FakeRedMoon2" type="SpotLight3D" parent="Fake Scene/Lighting"]
+transform = Transform3D(-0.998239, 0.0558267, -0.0200651, 0.0238384, 0.687215, 0.726063, 0.0543227, 0.724306, -0.687335, 26.2859, 9.41803, 33.2219)
+light_color = Color(0.634878, 0.241799, 0.230098, 1)
+light_energy = 1.33
+light_volumetric_fog_energy = 8.0
+light_specular = 16.0
+shadow_enabled = true
+spot_range = 50.0
+spot_attenuation = 0.001
+spot_angle = 75.0
+spot_angle_attenuation = 0.5
+
+[node name="SpotLight3D11" type="SpotLight3D" parent="Fake Scene/Lighting"]
+transform = Transform3D(-0.993857, 0.0712886, 0.0846515, 0, 0.764897, -0.644152, -0.11067, -0.640195, -0.760199, 32.9065, 1.04712, 27.9969)
+light_color = Color(1, 0.677906, 0.433713, 1)
+light_energy = 0.3
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 7.848
+spot_angle = 13.29
+
+[node name="rubble_large_gltf" parent="Fake Scene" instance=ExtResource("6_6js5n")]
+transform = Transform3D(-3.00696, 0.00633245, -1.41557, 0.0179153, 2.36177, 2.32831e-10, 3.32413, -0.00700039, -1.28051, 43.4622, 1.10488, 47.9075)
+
+[node name="rubble_large_gltf2" parent="Fake Scene" instance=ExtResource("6_6js5n")]
+transform = Transform3D(-4.71468, 0, 0.660014, 0, 3.48937, 0, -1.73738, 0, -1.79107, 27.0206, 0.743745, 47.0084)
+
+[node name="floor_dirt_large_rocky_gltf" parent="Fake Scene" instance=ExtResource("7_rek7d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 64)
+
+[node name="floor_dirt_large_rocky_gltf2" parent="Fake Scene" instance=ExtResource("7_rek7d")]
+transform = Transform3D(8.11054, 0, 5.84972, 0, 3.13486, 0, -5.84972, 0, 8.11054, 36.9192, 1.11916, 23.9608)
+
+[node name="Skeleton Warrior" parent="Fake Scene" instance=ExtResource("9_ocgds")]
+transform = Transform3D(-1.57565, 0, -0.678027, 0, 1.71534, 0, 0.678027, 0, -1.57565, 37.4846, 1.40965, 46.2627)
